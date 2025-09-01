@@ -2,7 +2,7 @@
 
 ---
 
-
+# Aim 
 Autopsy is an open-source digital forensics platform used to analyze and extract data from digital devices.  
 This experiment demonstrates creating a case, importing evidence, running analysis, and generating reports.
 
