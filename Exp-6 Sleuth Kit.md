@@ -1,160 +1,144 @@
-# Ex.No.6 — The Sleuth Kit (TSK):
+#  **Experiment No. 06 — Digital Forensic Analysis using Sleuth Kit (TSK)**
+
+##  **Overview**
+
+The **Sleuth Kit (TSK)**  is a versatile suite of command-line tools used in **digital forensics**.  
+It enables investigators to analyze disk images , uncover deleted files , and extract critical digital evidence  from storage devices.  
+This document walks through the complete process of using Sleuth Kit on a **Windows** system to perform forensic analysis.
 
 ---
 
-## Aim
-To use **The Sleuth Kit (TSK)**, a collection of command-line tools, to analyze a disk image (`4Dell Latitude CPi.E01`), examine its file system, and recover digital evidence.
+## **Step 1: Installing Sleuth Kit**
+
+1. **Download the Tool:**  
+   - Head over to the official Sleuth Kit page or use this link:  
+      [Download Sleuth Kit](https://drive.google.com/drive/u/1/folders/1ilSFY7Tqn2L7AjQGhq8yJ8kixc_xTU-v)  
+   - Choose the latest stable **Windows-compatible** version.
+
+2. **Installation Process:**  
+   - Run the installer and follow the setup wizard .  
+   - Once done, TSK will be ready to use on your system!
 
 ---
 
-## 🛠️ Prerequisites & Installation
+##  **Step 2: Acquire the Disk Image**
 
-1. **Sleuth Kit Tools:** Download the Windows version of Sleuth Kit (`sleuthkit-4.14.0-win32.zip`) and extract it to a known location (e.g., `C:\Users\sleuthkit-4.14.0-win32`).
-2. **Evidence Files:** Download the sample disk image files (`4Dell Latitude CPi.E01` and `4Dell Latitude CPi.E02`) from the Google Drive link provided in the lab manual.
-3. **Case Folder:** Create a dedicated folder for your investigation, for example: `C:\Forensics_Lab`. Place the evidence files inside this folder.
+Before analysis, a **forensic disk image** (a perfect bit-by-bit copy) of the device is needed.
+
+1. **Create Disk Image:**  
+   - Use tools like **FTK Imager**  or **`dd`** to create an exact copy.  
+   - Save it in a TSK-supported format: `.dd`, `.raw`, `.img`, or `.E01`.
+
+2. **Sample Evidence Files:**  
+   - For this lab, download the following from the provided link:  
+      `4Dell Latitude CPi.E01`  
+      `4Dell Latitude CPi.E02`
 
 ---
 
-## Procedure
+##  **Step 3: Mounting the Disk Image (Optional)**
 
-### Step 1: Open Command Prompt & Navigate
-- Open the Command Prompt (`cmd.exe`) **as Administrator**.
-- Navigate to the `bin` directory inside your Sleuth Kit folder. This is where all the executable tools (`.exe`) are located.
+Mounting lets you access the disk image as if it were a normal drive.
+
+- Use **OSFMount**  to mount the image in **read-only mode**.  
+-  *Note: This is optional but helps when browsing the file system.*
+
+---
+
+##  **Step 4: File System Analysis with TSK**
+
+Now let’s dive into Sleuth Kit tools  to inspect the file system.
+
+###  Navigate to the TSK Directory
+
 
 ```bash
-C:\Windows\System32> cd C:\Users\sleuthkit-4.14.0-win32\bin
+cd "C:\Program Files (x86)\sleuthkit-4.14.0-win32\bin"
 ```
+<img width="1789" height="371" alt="Screenshot 2025-10-27 191511" src="https://github.com/user-attachments/assets/2ed0182a-503c-4e6e-ab59-4227c90e35d1" />
 
 
-<p align="center">
-<img width="534" height="79" alt="Screenshot 2025-10-25 084644" src="https://github.com/user-attachments/assets/587309bf-6160-46ee-b8d2-9ba54a988b9d" />
-</p>
+###  Identify File System Type
 
+<img width="848" height="35" alt="Screenshot 2025-10-27 192744" src="https://github.com/user-attachments/assets/6452928a-5f77-4dc8-9ec6-b1ccbd902b6a" />
+
+<img width="1846" height="931" alt="Screenshot 2025-10-27 192032" src="https://github.com/user-attachments/assets/8bcc2920-400b-4b28-a6e6-51f715c1b8e2" />
+
+
+ *Displays key details about the file system type and structure.*
 
 ---
 
-### Step 2: List Partitions (`mmls`)
-- Use the `mmls` (list partitions) command to view the partition table of the disk image. This is critical for finding the **offset** (the starting sector) of the partition we want to analyze.
-- The path to the image file (`C:\Forensics_Lab\4Dell Latitude CPi.E01`) must be in quotes.
+###  View Partition Layout
+<img width="743" height="36" alt="image" src="https://github.com/user-attachments/assets/b4ca03ea-af1d-42a3-b664-595831752952" />
 
-```bash
-C:\Users\sleuthkit-4.14.0-win32\bin> mmls.exe "C:\Forensics_Lab\4Dell Latitude CPi.E01"
-```
-
-📁 **Tip:** The output shows the NTFS / exFAT (0x07) partition (Slot 002) starts at sector 63. This is our offset for the next commands.
+<img width="1792" height="258" alt="image" src="https://github.com/user-attachments/assets/4964babd-42c2-4d84-9cc9-d11e4e084f15" />
 
 
-<p align="center">
-<img width="819" height="319" alt="Screenshot 2025-10-25 084720" src="https://github.com/user-attachments/assets/d954ec00-9ba4-4f0e-98ec-ff0b433588c8" />
-</p>
-
+ *Lists all partitions and their respective start/end addresses.*
 
 ---
 
-### Step 3: Analyze File System (`fsstat`)
-- Use the `fsstat` (file system statistics) command to get detailed information about the partition.
-- We use the `-o 63` flag to specify the partition offset we just found.
-- This command prints the output directly to the screen.
+###  List Files and Directories
 
-```bash
-C:\Users\sleuthkit-4.14.0-win32\bin> fsstat.exe -o 63 "C:\Forensics_Lab\4Dell Latitude CPi.E01"
-```
+<img width="810" height="51" alt="image" src="https://github.com/user-attachments/assets/2c0b5c3e-c3bf-44ad-952f-38533f191107" />
+
+<img width="1919" height="928" alt="image" src="https://github.com/user-attachments/assets/e66a98ab-dc5c-42aa-87b8-3c489fc79e0d" />
 
 
-<p align="center">
-<img width="694" height="645" alt="Screenshot 2025-10-25 084902" src="https://github.com/user-attachments/assets/1567b244-f6b7-4663-846e-7c8914942ca7" />
-</p>
- 
+🔸 *Recursively lists files and folders with their inode details.*
 
 ---
 
-### Step 4: List Files and Directories (`fls`)
-- Use the `fls` (list files) command to recursively list all files and directories in the partition.
-- We use `-r` for recursive and pipe the output `>` to a text file (`file_list.txt`) for easy review and documentation.
-- This command will not show any output in the terminal.
+###  Recover Deleted Files
 
-```bash
-C:\Users\sleuthkit-4.14.0-win32\bin> fls.exe -r -o 63 "C:\Forensics_Lab\4Dell Latitude CPi.E01" > C:\Forensics_Lab\file_list.txt
-```
+<img width="841" height="50" alt="image" src="https://github.com/user-attachments/assets/7732b096-f2f0-4e05-b7a3-be761e082182" />
 
-📁 **Tip:** You can now open `file_list.txt` in your `C:\Forensics_Lab` folder to see all the files.
+<img width="1887" height="94" alt="image" src="https://github.com/user-attachments/assets/ec2cb605-5c84-43ab-b993-20e9bd50336f" />
 
- 
-<p align="center">
-  <img width="1120" height="43" alt="image" src="https://github.com/user-attachments/assets/639f5181-39a9-4c35-855a-471b81146948" />
-</p>
- 
+*Recovers a deleted or existing file by its inode number.*
 
 ---
 
-### Step 5: Analyze File Metadata (`istat`)
-- Use the `istat` (inode statistics) command to get detailed metadata about a specific file, such as its MAC (Modified, Accessed, Changed) times.
-- From the `file_list.txt`, we identified an interesting file: `Mr. Evil.bmp`.
-- Its inode number (the number before the hyphen) is `9871`.
-- We redirect the output to a file for our report.
+##  **Step 5: Metadata Analysis**
 
-```bash
-C:\Users\sleuthkit-4.14.0-win32\bin> istat.exe -o 63 "C:\Forensics_Lab\4Dell Latitude CPi.E01" 9871 > C:\Forensics_Lab\metadata_Mr_Evil.txt
-```
+To uncover file history and access details, view the file’s metadata.
 
+<img width="849" height="42" alt="image" src="https://github.com/user-attachments/assets/f765ec71-789a-4041-8d39-2cf6bd8f9738" />
 
-<p align="center">
-  <img width="1886" height="338" alt="image" src="https://github.com/user-attachments/assets/726eb8d2-3ad3-4913-9631-7bb0deac00be" />
-</p>
+  
+![WhatsApp Image 2025-10-26 at 22 58 58_65998012](https://github.com/user-attachments/assets/48b51664-732c-44ae-98d5-1c27a22069e3)
 
-
----
-
-### Step 6: Recover a File (`icat`)
-- Use the `icat` (inode cat) command to extract the contents of the file using its inode number.
-- We use the same inode `9871` and redirect the output, saving it directly as a `.bmp` image.
-
-```bash
-C:\Users\sleuthkit-4.14.0-win32\bin> icat.exe -o 63 "C:\Forensics_Lab\4Dell Latitude CPi.E01" 9871 > C:\Forensics_Lab\RECOVERED_Mr_Evil.bmp
-```
-
-
-<p align="center">
-  <img width="1363" height="362" alt="image" src="https://github.com/user-attachments/assets/8a302fb6-52f8-4987-b010-4490ddebb878" />
-</p>
- 
-
----
-
-### Step 7: Create an Event Timeline (`mactime`)
-- Finally, we create a full timeline of all file activity on the system.
-- First, generate a "body file" using `fls`. This file lists MAC times for all files.
-
-```bash
-C:\Users\sleuthkit-4.14.0-win32\bin> fls.exe -m / -r -o 63 "C:\Forensics_Lab\4Dell Latitude CPi.E01" > C:\Forensics_Lab\body.txt
-```
-
-- Second, use the `mactime.pl` Perl script to sort the body file into a chronological timeline, saved as a `.txt` file (which can also be opened in Excel).
-
-```bash
-C:\Users\sleuthkit-4.14.0-win32\bin> mactime.pl -b C:\Forensics_Lab\body.txt > C:\Forensics_Lab\timeline.txt
-```
-
-
-<p align="center">
-  <img width="1655" height="160" alt="image" src="https://github.com/user-attachments/assets/bd0a0b07-4c8f-47a0-8437-6179b96fba8e" />
-</p>
- 
-
----
-
-## ✅ Result
-By following these steps, we successfully used The Sleuth Kit to analyze the `4Dell Latitude CPi.E01` disk image. We were able to:
-
-- List the partition table (`mmls`) and identify the correct partition offset (63).
-- Analyze the file system metadata (`fsstat`).
-- List all files and directories, including deleted ones (`fls`).
-- Inspect the detailed metadata of a target file (`istat` on inode 9871).
-- Successfully recover the file `Mr. Evil.bmp` (`icat`).
-- Generate a full chronological timeline of all file system activity (`mactime`).
-
-All output files and recovered evidence are now stored in the `C:\Forensics_Lab` case folder, ready for reporting.
+ *Displays file attributes such as MAC times (Modified, Accessed, Changed), size, and allocation info.*
 
 ---
 
 
+##  **Step 6: Report Generation**
+
+After completing your analysis:
+
+1. **Compile All Outputs:**  
+   Collect files like `filesystem_info.txt`, `partitions.txt`, `file_list.txt`, and `timeline.txt`.
+
+2. **Interpret and Document:**  
+   Write a clear summary  explaining your findings, methods used, and any key recovered evidence.
+
+---
+
+##  **Step 7: Evidence Preservation**
+
+Ensuring the integrity of evidence is the final and most important step .
+
+1. **Archive Evidence Securely:**  
+   Use encryption  and hashing  to store your disk image and findings.
+
+2. **Maintain Chain of Custody:**  
+   Keep the evidence in a secure location following proper forensic protocols .
+
+---
+
+##  **Conclusion**
+
+Using the **Sleuth Kit (TSK)**, investigators can efficiently extract, analyze, and preserve digital evidence .  
+It remains one of the most reliable and open-source forensic toolkits for digital investigation .
