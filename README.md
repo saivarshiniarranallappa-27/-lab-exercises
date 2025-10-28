@@ -12,7 +12,7 @@ This repository contains the lab exercises for the **Digital Forensics Laborator
 <a href="https://github.com/saivarshiniarranallappa-27/-lab-exercises/blob/main/exp-3%20Wire%20Shark.md" target="_blank">Exp.No.3 – Wireshark</a>  
 <a href="https://github.com/saivarshiniarranallappa-27/-lab-exercises/blob/main/Exp-4%20Mail%20Header%20Analysis(MHA).md" target="_blank">Exp.No.4 – Mail Header Analysis (MHA)</a>  
 <a href="https://github.com/saivarshiniarranallappa-27/-lab-exercises/blob/main/Exp-5%20Autopsy.md" target="_blank">Exp.No.5 – Autopsy</a>  
-<a href="" target="_blank">Exp.No.5 – Autopsy</a>  
+<a href="https://github.com/saivarshiniarranallappa-27/-lab-exercises/blob/main/Exp-6%20Sleuth%20Kit.md" target="_blank">Exp.No.6 – Sleuth%20Kit</a>  
 <a href="https://github.com/saivarshiniarranallappa-27/-lab-exercises/blob/main/Exp-5%20Autopsy.md" target="_blank">Exp.No.5 – Autopsy</a>  
 <a href="https://github.com/saivarshiniarranallappa-27/-lab-exercises/blob/main/Exp-5%20Autopsy.md" target="_blank">Exp.No.5 – Autopsy</a>  
 <a href="https://github.com/saivarshiniarranallappa-27/-lab-exercises/blob/main/Exp-5%20Autopsy.md" target="_blank">Exp.No.5 – Autopsy</a>  
