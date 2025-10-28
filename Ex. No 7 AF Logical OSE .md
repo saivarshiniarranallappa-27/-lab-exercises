@@ -4,7 +4,7 @@
   <h1>Experiment 7: AFLogical OSE</h1>
   <hr>
 
-  <h2>AIM:</h2>
+  <h2>Aim:</h2>
   <p>To extract logical data such as contacts, messages, and call logs from an Android device using AFLogical OSE (Open Source Edition).</p>
 
   <h2>Objective:</h2>
