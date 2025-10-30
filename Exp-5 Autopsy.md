@@ -104,7 +104,20 @@ Choose the version for your OS (Windows/Linux/macOS) and follow the installation
 
 ---
 
-## Conclusion
-Autopsy provides a structured and efficient workflow for digital forensic investigations.  
-From case creation to evidence analysis and reporting, it enables investigators to maintain data integrity while uncovering relevant artifacts.
+ # Rubrics
+ ---
+  
+  | Criteria | Mark Allotted | Mark Awarded |
+  |---|---:|---:|
+  | 1. GitHub Activity & Submission Regularity | 3 | |
+  | 2. Application of Forensic Tools & Practical Execution | 3 | |
+  | 3. Documentation & Reporting | 2 | |
+  | 4. Engagement, Problem-Solving & Team Collaboration | 2 | |
+  | *Total* | *10* | |
+  
+---
+
+## Result
+  
+Thus, from case creation to evidence analysis and reporting, it enables investigators to maintain data integrity while uncovering relevant artifacts.
 
