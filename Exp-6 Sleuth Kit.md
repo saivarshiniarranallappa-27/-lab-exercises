@@ -18,6 +18,8 @@ To perform *digital forensic analysis* on a disk image using the *Sleuth Kit (TS
 
 ---
 
+
+
 ##  *Step 2: Acquire the Disk Image*
 
 Before analysis, a *forensic disk image* (a perfect bit-by-bit copy) of the device is needed.
@@ -32,6 +34,9 @@ Before analysis, a *forensic disk image* (a perfect bit-by-bit copy) of the devi
       4Dell Latitude CPi.E02
 
 ---
+
+
+
 
 ##  *Step 3: Mounting the Disk Image (Optional)*
 
@@ -81,6 +86,13 @@ cd "C:\Program Files (x86)\sleuthkit-4.14.0-win32\bin"
  Lists all partitions and their respective start/end addresses.
 
 ---
+
+
+
+
+
+
+
 
 ###  List Files and Directories
 
@@ -140,10 +152,22 @@ Ensuring the integrity of evidence is the final and most important step .
    Keep the evidence in a secure location following proper forensic protocols .
 
 ---
+ # Rubrics
+ ---
+  
+  | Criteria | Mark Allotted | Mark Awarded |
+  |---|---:|---:|
+  | 1. GitHub Activity & Submission Regularity | 3 | |
+  | 2. Application of Forensic Tools & Practical Execution | 3 | |
+  | 3. Documentation & Reporting | 2 | |
+  | 4. Engagement, Problem-Solving & Team Collaboration | 2 | |
+  | *Total* | *10* | |
+
+---
 
 ## *Result*
 
 Using the *Sleuth Kit (TSK)*, investigators can efficiently extract, analyze, and preserve digital evidence .  
 It remains one of the most reliable and open-source forensic toolkits for digital investigation .
     
-
+---
