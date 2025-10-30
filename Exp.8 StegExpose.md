@@ -141,21 +141,25 @@ The tool lists images with potential hidden data and estimates the approximate s
 * zsteg
 * Binwalk
 
+
 ---
+ # Rubrics
+ --- 
+  | Criteria | Mark Allotted | Mark Awarded |
+  |---|---:|---:|
+  | 1. GitHub Activity & Submission Regularity | 3 | |
+  | 2. Application of Forensic Tools & Practical Execution | 3 | |
+  | 3. Documentation & Reporting | 2 | |
+  | 4. Engagement, Problem-Solving & Team Collaboration | 2 | |
+  | *Total* | *10* | |
 
-##  Optional — Export Results Automatically
-
-Generate a results file for easier review:
-
-```bash
-java -jar StegExpose.jar "C:\Users\99230\StegExpose\testFolder" fast 0.3 results.csv
-
-
-
-##  Conclusion
+---
+## Result
 
 *  Successfully compiled and executed StegExpose
 *  Detected images containing potential hidden data
 *  Interpreted results and exported findings
 
-Hidden data in image files was successfully detected using StegExpose. 
+
+   Hidden data in image files was successfully detected using StegExpose. 
+---
