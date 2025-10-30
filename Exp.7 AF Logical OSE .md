@@ -1,5 +1,7 @@
 # Ex.No.7: Use AFLogical OSE to Extract Data from an Android Device
 
+---
+
 #  Aim  
 To extract logical data such as contacts, SMS, and call logs from an Android device using *AFLogical OSE* and analyze the collected evidence for forensic purposes.
 
@@ -235,7 +237,7 @@ Get-FileHash "C:\Users\knsha\Downloads\ForensicLab\output\20251026.1721\Contacts
 bash
 sha256sum ~/ForensicLab/output/contacts.csv
 
-
+---
 
 Record the hash in your report.
 
@@ -267,9 +269,25 @@ adb uninstall com.viaforensics.android.aflogical
 | Uninstall AFLogical | adb uninstall com.viaforensics.android.aflogical |
 
 ---
+ # Rubrics
+
+ ---
+  
+  | Criteria | Mark Allotted | Mark Awarded |
+  |---|---:|---:|
+  | 1. GitHub Activity & Submission Regularity | 3 | |
+  | 2. Application of Forensic Tools & Practical Execution | 3 | |
+  | 3. Documentation & Reporting | 2 | |
+  | 4. Engagement, Problem-Solving & Team Collaboration | 2 | |
+  | *Total* | *10* | |
+
+---
+
 # Result  
 - Successfully connected the *Android device* to the forensic workstation using *ADB*.  
 - Installed and executed *AFLogical OSE* on the device for logical data extraction.  
 - Extracted essential data — *contacts, **messages, **call logs, and **calendar entries* — and stored them as CSV files.  
 - Verified the integrity of extracted data using *SHA-256 hash values*.  
 - The experiment demonstrated how *AFLogical OSE* can perform effective logical data acquisition in mobile forensics.
+
+---
