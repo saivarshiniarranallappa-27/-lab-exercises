@@ -167,9 +167,22 @@ Click **Start** to begin acquisition.
 After completion, FTK Imager generates a report file with acquisition details and matched hash values.
 
 ---
+ # Rubrics
+ 
+ ---
+  
+  | Criteria | Mark Allotted | Mark Awarded |
+  |---|---:|---:|
+  | 1. GitHub Activity & Submission Regularity | 3 | |
+  | 2. Application of Forensic Tools & Practical Execution | 3 | |
+  | 3. Documentation & Reporting | 2 | |
+  | 4. Engagement, Problem-Solving & Team Collaboration | 2 | |
+  | *Total* | *10* | |
 
-## Conclusion
-FTK Imager is a reliable tool for acquiring both volatile and non-volatile memory while ensuring evidence integrity through hashing and write blockers.
+---
+
+## Result
+Thus, FTK Imager is a reliable tool for acquiring both volatile and non-volatile memory while ensuring evidence integrity through hashing and write blockers.
 
 
 
