@@ -80,11 +80,24 @@ This confirms the captured username and password exactly as submitted by the bro
 
 ---
 
-## Conclusion
+ # Rubrics
+ ---
+  
+  | Criteria | Mark Allotted | Mark Awarded |
+  |---|---:|---:|
+  | 1. GitHub Activity & Submission Regularity | 3 | |
+  | 2. Application of Forensic Tools & Practical Execution | 3 | |
+  | 3. Documentation & Reporting | 2 | |
+  | 4. Engagement, Problem-Solving & Team Collaboration | 2 | |
+  | *Total* | *10* | |
+
+---
+
+## Result
 Using Wireshark with simple filters (`http`, `http.request.method == "GET"`, `http.request.method == "POST"`) makes it straightforward to find submitted form data during a login action when the site uses unencrypted HTTP. This experiment highlights the importance of TLS/HTTPS for protecting user credentials.
 
 
-
+---
 
 
 
