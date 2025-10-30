@@ -91,8 +91,21 @@ Use TestDisk to recover a missing partition and repair a corrupted one.
 
 ---
 
-## Conclusion
+ # Rubrics
+ ---
+  
+  | Criteria | Mark Allotted | Mark Awarded |
+  |---|---:|---:|
+  | 1. GitHub Activity & Submission Regularity | 3 | |
+  | 2. Application of Forensic Tools & Practical Execution | 3 | |
+  | 3. Documentation & Reporting | 2 | |
+  | 4. Engagement, Problem-Solving & Team Collaboration | 2 | |
+  | *Total* | *10* | |
+---
+
+
+## Result
 Following TestDisk’s **Analyse → (Quick/Deeper) Search → Set Status → Write → (Backup BS)** flow allows recovery of lost partitions and repair of corrupted NTFS boot sectors with minimal risk. Always verify files with **`p`** before writing changes.
 
-
+---
 
